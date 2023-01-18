@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <link rel="icon" type="image/png" href="./logos/jcacmLogo400.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Beat Maker</title>
+</head>
+<body>
+    <div class="beat-maker-wrapper">
+
+        <header>
+            <div class="logo">
+                <img src="./logos/jcacmLogo400.png" alt="logo">
+                <p>Jencat & Cavemutt</p>
+            </div>
+            <div class="titles">
+                <h1>Baz's Beat Maker</h1>
+                <h2>Will Baz dig your beats?</h2>
+            </div>
+            <div class="reactive-container">
+                <div class="img-container">
+                    <img src="./Baz/body-only.png" alt="cat body" id="cat-body">
+                    <img src="./Baz/eye-left.png" alt="cat eyes" class="eye eye-left">
+                    <img src="./Baz/feathers.png" alt="feather boa" id="boa" class="boa">
+                    <img src="./Baz/eye-right.png" alt="cat eyes" class="eye eye-right">
+                    <img src="./Baz/head-no-eyes.png" alt="watching cat head" id="cat-head-watching">
+                    <img src="./Baz/head-squinty.png" alt="cool cat head" id="cat-head-cool" class=".opacity-down">
+                </div>
+                <div class="sound-react-container">
+                    <div class="kick-react sound-react"></div>
+                    <div class="snare-react sound-react"></div>
+                    <div class="hihat-react sound-react"></div>
+                    <div class="meow-react sound-react"></div>
+                </div>
+                <div class="glitter-container">
+                    <div class="glitter">
+                        <span style="--i:11;"></span>
+                        <span style="--i:13;"></span>
+                        <span style="--i:21;"></span>
+                        <span style="--i:28;"></span>
+                        <span style="--i:12;"></span>
+                        <span style="--i:15;"></span>
+                        <span style="--i:25;"></span>
+                        <span style="--i:23;"></span>
+                        <span style="--i:18;"></span>
+                        <span style="--i:10;"></span>
+                        <span style="--i:29;"></span>
+                        <span style="--i:22;"></span>
+                        <span style="--i:19;"></span>
+                        <span style="--i:14;"></span>
+                        <span style="--i:20;"></span>
+                        <span style="--i:26;"></span>
+                        <span style="--i:17;"></span>
+                        <span style="--i:24;"></span>
+                        <span style="--i:16;"></span>
+                        <span style="--i:30;"></span>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        
+        <main>
+            <div class="sequencer">
+                <div class="track kick-track">
+                    <div class="controls">
+                        <h3>Kick</h3>
+                        <button class="mute kick-volume" data-track="0">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
+                        <select name="kick-select" id="kick-select">
+                            <option value="./sounds/kick-classic.wav">Classic Kick</option>
+                            <option value="./sounds/kick-808.wav">808 Kick</option>
+                            <option value="./sounds/kick-heavy.wav">Heavy Kick</option>
+                            <option value="./sounds/kick-softy.wav">Soft Kick</option>
+                        </select>
+                    </div>
+                    <div class="kick-pad-container pad-container">
+                        <div class="pad kick-pad b0"></div>
+                        <div class="pad kick-pad b1"></div>
+                        <div class="pad kick-pad b2"></div>
+                        <div class="pad kick-pad b3"></div>
+                        <div class="pad kick-pad b4"></div>
+                        <div class="pad kick-pad b5"></div>
+                        <div class="pad kick-pad b6"></div>
+                        <div class="pad kick-pad b7"></div>
+                    </div>
+                </div>
+
+                <div class="track snare-track">
+                    <div class="controls">
+                        <h3>Snare</h3>
+                        <button class="mute snare-volume" data-track="1">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
+                        <select name="snare-select" id="snare-select">
+                            <option value="./sounds/snare-acoustic01.wav">Acoustic Snare</option>
+                            <option value="./sounds/snare-808.wav">808 Snare</option>
+                            <option value="./sounds/snare-vinyl02.wav">Vinyl Snare</option>
+                        </select>
+                    </div>
+                    <div class="snare-pad-container pad-container">
+                        <div class="pad snare-pad b0"></div>
+                        <div class="pad snare-pad b1"></div>
+                        <div class="pad snare-pad b2"></div>
+                        <div class="pad snare-pad b3"></div>
+                        <div class="pad snare-pad b4"></div>
+                        <div class="pad snare-pad b5"></div>
+                        <div class="pad snare-pad b6"></div>
+                        <div class="pad snare-pad b7"></div>
+                    </div>
+                </div>
+
+                <div class="track hihat-track">
+                    <div class="controls">
+                        <h3>Hi-Hat</h3>
+                        <button class="mute hihat-volume" data-track="2">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
+                        <select name="hihat-select" id="hihat-select">
+                            <option value="./sounds/hihat-acoustic01.wav">Acoustic Hi Hat</option>
+                            <option value="./sounds/hihat-808.wav">808 Hi Hat</option>
+                        </select>
+                    </div>
+                    <div class="hihat-pad-container pad-container">
+                        <div class="pad hihat-pad b0"></div>
+                        <div class="pad hihat-pad b1"></div>
+                        <div class="pad hihat-pad b2"></div>
+                        <div class="pad hihat-pad b3"></div>
+                        <div class="pad hihat-pad b4"></div>
+                        <div class="pad hihat-pad b5"></div>
+                        <div class="pad hihat-pad b6"></div>
+                        <div class="pad hihat-pad b7"></div>
+                    </div>
+                </div>
+
+                <div class="track meow-track">
+                    <div class="controls">
+                        <h3>Meow</h3>
+                        <button class="mute meow-volume" data-track="3">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
+                        <select name="meow-select" id="meow-select">
+                            <option value="./sounds/short-meow.mp3">Short Meow</option>
+                            <option value="./sounds/double-meow.mp3">Double Meow</option>
+                            <option value="./sounds/beefy-meow.mp3">Beefy Meow</option>
+                            <option value="./sounds/metal-meow.mp3">Metal Meow</option>
+                        </select>
+                    </div>
+                    <div class="meow-pad-container pad-container">
+                        <div class="pad meow-pad b0"></div>
+                        <div class="pad meow-pad b1"></div>
+                        <div class="pad meow-pad b2"></div>
+                        <div class="pad meow-pad b3"></div>
+                        <div class="pad meow-pad b4"></div>
+                        <div class="pad meow-pad b5"></div>
+                        <div class="pad meow-pad b6"></div>
+                        <div class="pad meow-pad b7"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="other-controls">
+                <button class="play">Play</button>
+                <audio class="kick-sound" src="./sounds/kick-classic.wav"></audio>
+                <audio class="snare-sound" src="./sounds/snare-acoustic01.wav"></audio>
+                <audio class="hihat-sound" src="./sounds/hihat-acoustic01.wav"></audio>
+                <audio class="meow-sound" src="./sounds/short-meow.mp3"></audio>
+                <div class="tempo">
+                    <input type="range" class="tempo-slider" max="300" min="20" value="150">
+                    <p>Tempo : <span class="tempo-number">150</span></p>
+                </div>
+                <button class="clear">Clear</button>
+            </div>
+        </main>
+
+
+    </div>
+
+
+</body>
+</html>
