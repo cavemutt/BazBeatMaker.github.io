@@ -90,7 +90,7 @@ class DrumKit {
     }
     updateBtn() {
         if(!this.isPlaying) {
-            this.playBtn.innerText = "Stop";
+            this.playBtn.innerText = "Pause";
             this.playBtn.classList.add('active')
         } else {
             this.playBtn.innerText = "Play";
