@@ -4,33 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light dark">
-    <link rel="icon" type="image/png" href="./logos/jcacmLogo400.png">
+    <link rel="icon" type="image/png" href="./logos/jldev-final2-dkblue.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <title>Beat Maker</title>
+    <link rel="stylesheet" href="./bubbleStyle.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Baz's Beat Maker</title>
 </head>
 <body>
-    <div class="beat-maker-wrapper">
 
-        <header>
-            <div class="logo">
-                <img src="./logos/jcacmLogo400.png" alt="logo">
-                <p>Jencat & Cavemutt</p>
+<!-- This section is for the Silly Billy Bubble Tour. See Billy's repo on github/cavemutt to learn more! -->
+        <div class="bubble-wrapper">
+            <button class="open-billy-bubbles-btn start" id="billy-btn" title="open/close the Tour">
+                <img src="./assets/Billy-paw-400.png" alt="Silly Billy's paw to open tour">
+            </button>
+    
+           <img id="bubble-indicator" src="./assets/Billy-paw-400.png" alt="Silly Billy's paw to show you each stop on the tour" title="I highlight each tour stop"></img>
+    
+            <div class="silly-billy-bubbles" id="silly-billy-bubbles">
+                <div class="billy-bubble" id="billy-bubble">
+                    <img src="./assets/Billy-whiskers-700.png" alt="Silly Billy's head">
+                </div>
+                <div class="bubble-shaper"></div>
+                <p class="bubble-content" id="bubble-content"></p>
+                <button class="close-bubble bubble-btn" id="close-bubble" title="close Billy Bubbles">X</button>
+                <button class="continue-bubble bubble-btn" id="continue-bubble" title="next Billy Bubble">>></button>
             </div>
+        </div>
+
+<!-- Baz's Beat Maker app -->
+    <div class="beat-maker-wrapper">
+        <div id="bubble-intro" data-bubble="Hi! I'm Silly Billy! Can I can take you on on a little tour of Baz's Beat Maker? Hit the >> button for the next tour stop, or the X to close the tour!"></div>
+        <div id="bubble-outro" data-bubble="Ok! Feel free to hit the purple Paw button (at the top right of the page) anytime to start the tour again. Bye! (X to close)"></div>
+
+        <header data-bubble="This title uses Baz's image with a background-clip and a pseudo element for these cool effects.">
+            <a href="https://github.com/cavemutt" target="_blank" class="logo" title="github.com/cavemutt"><img src="./logos/jldev-final2-dkblue.png" alt="logo">visit my repos!</a>
             <div class="titles">
                 <h1>Baz's Beat Maker</h1>
                 <h2>Will Baz dig your beats?</h2>
             </div>
-            <div class="reactive-container">
+            <div id="confetti" data-bubble="An equalizer effect reacts to your tracks, and if you play Baz's favorite track, he'll summon the confetti and put on his party gear!"></div>
+            <div class="reactive-container" id="baz-container" data-bubble="And this is the great Baz Jackson Wachowski, or at least an original painting of him. He will watch you in silent judgment until he starts digging your beats, and then it's party time!">
                 <div class="img-container">
                     <img src="./Baz/body-only.png" alt="cat body" id="cat-body">
-                    <img src="./Baz/eye-left.png" alt="cat eyes" class="eye eye-left">
+                    <img src="./Baz/eye-left.png" alt="cat eye left" class="eye eye-left">
                     <img src="./Baz/feathers.png" alt="feather boa" id="boa" class="boa">
-                    <img src="./Baz/eye-right.png" alt="cat eyes" class="eye eye-right">
-                    <img src="./Baz/head-no-eyes.png" alt="watching cat head" id="cat-head-watching">
-                    <img src="./Baz/head-squinty.png" alt="cool cat head" id="cat-head-cool" class=".opacity-down">
+                    <img src="./Baz/eye-right.png" alt="cat eye right" class="eye eye-right">
+                    <img src="./Baz/head-no-eyes.png" alt="cat head" id="cat-head-watching">
+                    <img src="./Baz/head-squinty.png" alt="cat head that digs your beats" id="cat-head-cool" class=".opacity-down">
                 </div>
                 <div class="sound-react-container">
                     <div class="kick-react sound-react"></div>
@@ -67,14 +87,19 @@
         </header>
         
         <main>
-            <div class="sequencer">
+            <div class="sequencer" id="sequencer">
+                <div class="main-volume-container" id="volume" data-bubble="First of all, this app uses sounds. It starts low, so increase the volume as you like.">
+                    <label for="volume-control">Main Volume</label>
+                    <input type="range" value="0" id="volume-control" min="0" max="1" step="0.05">
+                </div>
                 <div class="track kick-track">
                     <div class="controls">
                         <h3>Kick</h3>
                         <button class="mute kick-volume" data-track="0">
                             <i class="fa-solid fa-volume-xmark"></i>
+                            <p>(Mute track)</p>
                         </button>
-                        <select name="kick-select" id="kick-select">
+                        <select name="kick-select" id="kick-select" data-bubble="These are the tracks you can play with. Each square is one beat, each set of 8 will repeat. Highlight the squares you want to play the sounds.">
                             <option value="./sounds/kick-classic.wav">Classic Kick</option>
                             <option value="./sounds/kick-808.wav">808 Kick</option>
                             <option value="./sounds/kick-heavy.wav">Heavy Kick</option>
@@ -98,6 +123,7 @@
                         <h3>Snare</h3>
                         <button class="mute snare-volume" data-track="1">
                             <i class="fa-solid fa-volume-xmark"></i>
+                            <p>(Mute track)</p>
                         </button>
                         <select name="snare-select" id="snare-select">
                             <option value="./sounds/snare-acoustic01.wav">Acoustic Snare</option>
@@ -122,6 +148,7 @@
                         <h3>Hi-Hat</h3>
                         <button class="mute hihat-volume" data-track="2">
                             <i class="fa-solid fa-volume-xmark"></i>
+                            <p>(Mute track)</p>
                         </button>
                         <select name="hihat-select" id="hihat-select">
                             <option value="./sounds/hihat-acoustic01.wav">Acoustic Hi Hat</option>
@@ -145,8 +172,9 @@
                         <h3>Meow</h3>
                         <button class="mute meow-volume" data-track="3">
                             <i class="fa-solid fa-volume-xmark"></i>
+                            <p>(Mute track)</p>
                         </button>
-                        <select name="meow-select" id="meow-select">
+                        <select name="meow-select" id="meow-select" data-bubble="Each track has a mute button and sound choices in a dropdown menu. You can change selections and track pads at any time.">
                             <option value="./sounds/short-meow.mp3">Short Meow</option>
                             <option value="./sounds/double-meow.mp3">Double Meow</option>
                             <option value="./sounds/beefy-meow.mp3">Beefy Meow</option>
@@ -166,23 +194,31 @@
                 </div>
 
             </div>
-            <div class="other-controls">
+            <div class="other-controls" id="other-controls" >
                 <button class="play">Play</button>
                 <audio class="kick-sound" src="./sounds/kick-classic.wav"></audio>
                 <audio class="snare-sound" src="./sounds/snare-acoustic01.wav"></audio>
                 <audio class="hihat-sound" src="./sounds/hihat-acoustic01.wav"></audio>
                 <audio class="meow-sound" src="./sounds/short-meow.mp3"></audio>
                 <div class="tempo">
-                    <input type="range" class="tempo-slider" max="300" min="20" value="150">
-                    <p>Tempo : <span class="tempo-number">150</span></p>
+                    <input type="range" class="tempo-slider" id="tempo-slider" max="300" min="20" value="150" data-bubble="The Play button starts the beats, Stop will pause and Clear will reset all track pads. Change the tempo to suit your mood!"><br>
+                    <label for="tempo-slider">Tempo : <span class="tempo-number">150</span></label>
                 </div>
                 <button class="clear">Clear</button>
             </div>
         </main>
 
+        <footer>
+            <p>
+                Hand-coded with Love by Jennifer Lee Dev copyright &copy;2023
+            </p>
+        </footer>
 
     </div>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="./bubbleScript.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
+

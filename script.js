@@ -3,6 +3,8 @@ document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
 }, false)
 
+const volume = document.querySelector('#volume-control')
+
 // main 
 class DrumKit {
     constructor() {
@@ -17,9 +19,6 @@ class DrumKit {
         this.snareAudio = document.querySelector(".snare-sound");
         this.hihatAudio = document.querySelector(".hihat-sound");
         this.meowAudio = document.querySelector(".meow-sound");
-        this.index = 0;
-        this.bpm = 150;
-        this.isPlaying = null;
         this.selects = document.querySelectorAll('select');
         this.muteBtns = document.querySelectorAll('.mute');
         this.tempoSlider = document.querySelector('.tempo-slider');
@@ -28,6 +27,13 @@ class DrumKit {
         this.catHeadCool = document.querySelector('#cat-head-cool');
         this.catHeadWatching = document.querySelector('#cat-head-watching');
         this.glitter = document.querySelector('.glitter');
+        this.index = 0;
+        this.bpm = 150;
+        this.isPlaying = null;
+        this.kickAudio.volume = 0
+        this.snareAudio.volume = 0
+        this.hihatAudio.volume = 0
+        this.meowAudio.volume = 0
     }
     repeat() {
         let step = this.index % 8;
@@ -115,6 +121,15 @@ class DrumKit {
     activePad() {
         this.classList.toggle("active");
     }
+
+    volume(e) {
+        const vol = e.target.value
+        this.kickAudio.volume = vol
+        this.snareAudio.volume = vol
+        this.hihatAudio.volume = vol
+        this.meowAudio.volume = vol
+    }
+
     mute(e) {
         const muteIndex = e.target.getAttribute("data-track");
         e.target.classList.toggle("active");
@@ -257,6 +272,10 @@ window.addEventListener('load', () => {
     drumKit.clear()
 })
 
+volume.addEventListener('input', e => {
+    drumKit.volume(e)
+})
+
 drumKit.sequencer.addEventListener('mouseover', () => {
     drumKit.makeEyesMove()
 })
@@ -296,3 +315,4 @@ drumKit.clearBtn.addEventListener('click', () => {
         drumKit.clear()
     })
     
+console.log('other ', volume.getBoundingClientRect())
