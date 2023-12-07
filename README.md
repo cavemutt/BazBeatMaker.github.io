@@ -64,3 +64,5 @@ Promineo Tech (school, https://promineotech.com/)
 
 
 _Please enjoy and thanks for checking it out!_
+
+![Baz in Partytime Mode!](/assets/BazsBeatMakerPartytime.jpg)
