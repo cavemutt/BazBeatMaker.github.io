@@ -468,6 +468,10 @@ h3 {
     gap: 1em;
 }
 
+controls * {
+    box-shadow: 0.1rem 0.1rem 0.2rem 0 rgb(0 0 0 / 0.5);
+}
+
 .controls h3 {
     width: 3.7rem;
 }
