@@ -267,6 +267,7 @@ class DrumKit {
 
 const drumKit = new DrumKit();
 
+
 // Event Listeners
 window.addEventListener('load', () => {
     drumKit.clear()
